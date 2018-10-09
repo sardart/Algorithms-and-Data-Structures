@@ -36,38 +36,9 @@
 
 #include <iostream>
 
+void calculateResultArray(const int* a, int n, const int* b, int m, int* result);
 int findIndex(const int *a, int size, int value);
 int binSearch (const int* array, int arraySize, int value);
-void calculateResultArray(const int* a, int n, const int* b, int m, int* result);
-
-int main(int argc, const char * argv[]) {
-    int n, m;
-    std::cin >> n;
-    std::cin >> m;
-    
-    int *a = new int[n];
-    int *b = new int[m];
-    int *result = new int[m];
-    
-    for(int i = 0; i < n; i++) {
-        std::cin >> a[i];
-    }
-    
-    for(int i = 0; i < m; i++) {
-        std::cin >> b[i];
-    }
-    
-    calculateResultArray(a, n, b, m, result);
-    for(int i = 0; i < m; i++) {
-        std::cout << result[i] << " ";
-    }
-    
-    delete[] a;
-    delete[] b;
-    delete[] result;
-    
-    return 0;
-}
 
 void calculateResultArray(const int* a, int n, const int* b, int m, int* result) {
     for (int i = 0; i < m; i++) {
@@ -106,4 +77,33 @@ int binSearch (const int* array, int arraySize, int value) {
         }
     }
     return first;
+}
+
+int main(int argc, const char * argv[]) {
+    int n, m;
+    std::cin >> n;
+    std::cin >> m;
+    
+    int *a = new int[n];
+    int *b = new int[m];
+    int *result = new int[m];
+    
+    for(int i = 0; i < n; i++) {
+        std::cin >> a[i];
+    }
+    
+    for(int i = 0; i < m; i++) {
+        std::cin >> b[i];
+    }
+    
+    calculateResultArray(a, n, b, m, result);
+    for(int i = 0; i < m; i++) {
+        std::cout << result[i] << " ";
+    }
+    
+    delete[] a;
+    delete[] b;
+    delete[] result;
+    
+    return 0;
 }
